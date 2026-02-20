@@ -58,7 +58,7 @@ export default function EPKPage() {
                   </p>
                   <p>
                     His breakout hit <em>"Confessions"</em>, produced by Grammy-nominated producer Troyton Hinds,
-                    showcased his smooth vocal delivery and ability to seamlessly fuse reggae with catchy melodies—earning
+                    showcased his smooth vocal delivery and ability to seamlessly fuse reggae with catchy melodies, earning
                     him recognition throughout the Caribbean and North America. Fans praise his music as "long overdue and
                     needed in dancehall."
                   </p>
