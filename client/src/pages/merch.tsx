@@ -1,4 +1,4 @@
-import { SEO } from "@/components/seo";
+import SEO from "@/components/seo";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingBag } from "lucide-react";

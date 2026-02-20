@@ -1,4 +1,4 @@
-import { SEO } from "@/components/seo";
+import SEO from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 

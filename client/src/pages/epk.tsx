@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { SEO } from "@/components/seo";
+import SEO from "@/components/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, Music, Video, Quote, Mail } from "lucide-react";

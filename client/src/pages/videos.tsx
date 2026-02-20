@@ -1,4 +1,4 @@
-import { SEO } from "@/components/seo";
+import SEO from "@/components/seo";
 import LazyYouTube from "@/components/lazy-youtube";
 
 const videos = [
