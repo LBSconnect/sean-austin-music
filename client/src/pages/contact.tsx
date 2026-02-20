@@ -170,10 +170,10 @@ export default function ContactPage() {
           </Card>
 
           <div className="mt-8 text-center text-muted-foreground">
-            <p className="text-sm">
-              For urgent inquiries, please email directly at{" "}
-              <a href="mailto:booking@seanaustinmusic.com" className="text-primary hover:underline">
-                booking@seanaustinmusic.com
+            <p className="text-sm flex items-center justify-center gap-2">
+              For urgent inquiries, please email directly
+              <a href="mailto:iamseanaustin@icloud.com" className="text-primary hover:text-primary/80 inline-flex items-center">
+                <Mail className="w-5 h-5" />
               </a>
             </p>
           </div>

@@ -5,10 +5,25 @@ import { Button } from "@/components/ui/button";
 import { Download, Music, Video, Quote, Mail } from "lucide-react";
 import type { PressQuote } from "@shared/schema";
 
+// Press photo for download
+const PRESS_PHOTO_URL = "/attached_assets/Sean_Austin_1771278867767.jpg";
+
+// YouTube video ID for "Confession" music video
+const CONFESSION_VIDEO_ID = "dQw4w9WgXcQ"; // Replace with actual video ID from YouTube
+
 export default function EPKPage() {
   const { data: pressQuotes } = useQuery<PressQuote[]>({
     queryKey: ["/api/press-quotes"],
   });
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = PRESS_PHOTO_URL;
+    link.download = "Sean_Austin_Press_Photo.jpg";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <>
@@ -34,12 +49,25 @@ export default function EPKPage() {
                 <CardTitle>Artist Bio</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Sean Austin is an international reggae artist who blends traditional Jamaican
-                  roots with modern global sounds. With a unique fusion of authentic reggae
-                  tradition and contemporary influences, his music bridges cultures and
-                  generations, connecting listeners across the world through rhythm and soul.
-                </p>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    <strong className="text-primary">Sean Austin</strong> is a Jamaican-born international reggae recording artist,
+                    singer, and songwriter whose soulful voice and dynamic performances have captivated audiences worldwide.
+                    With a distinctive blend of reggae, dancehall, and contemporary pop influences, Sean brings a fresh yet
+                    authentic sound that resonates across generations.
+                  </p>
+                  <p>
+                    His breakout hit <em>"Confessions"</em>, produced by Grammy-nominated producer Troyton Hinds,
+                    showcased his smooth vocal delivery and ability to seamlessly fuse reggae with catchy melodies—earning
+                    him recognition throughout the Caribbean and North America. Fans praise his music as "long overdue and
+                    needed in dancehall."
+                  </p>
+                  <p>
+                    From intimate venues to international festival stages, Sean Austin delivers electrifying live performances
+                    that leave lasting impressions. His catalog includes acclaimed releases such as "Same Girl" and the album
+                    "Purple Hearts," cementing his status as a rising force in the global reggae movement.
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
@@ -49,12 +77,19 @@ export default function EPKPage() {
                 <CardTitle>Press Photos</CardTitle>
               </CardHeader>
               <CardContent>
+                <div className="mb-4">
+                  <img
+                    src={PRESS_PHOTO_URL}
+                    alt="Sean Austin Press Photo"
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                </div>
                 <p className="text-muted-foreground mb-4">
                   High-resolution press photos available for download.
                 </p>
-                <Button variant="outline">
+                <Button variant="outline" onClick={handleDownload}>
                   <Download className="w-4 h-4 mr-2" />
-                  Download Press Kit
+                  Download Press Photo
                 </Button>
               </CardContent>
             </Card>
@@ -85,12 +120,20 @@ export default function EPKPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Video className="w-5 h-5" />
-                  Featured Video
+                  Featured Video - "Confession"
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                  <p className="text-muted-foreground">Video embed coming soon</p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${CONFESSION_VIDEO_ID}`}
+                    title="Sean Austin - Confession (Official Video)"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="rounded-lg"
+                  />
                 </div>
               </CardContent>
             </Card>

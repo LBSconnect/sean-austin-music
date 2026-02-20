@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { FaInstagram, FaXTwitter, FaYoutube, FaFacebook, FaTiktok } from "react-icons/fa6";
 import { SiSpotify, SiApplemusic } from "react-icons/si";
+import { Mail } from "lucide-react";
 
 const quickLinks = [
   { href: "/music", label: "Music" },
@@ -15,7 +16,7 @@ const quickLinks = [
 const socialLinks = [
   { href: "https://instagram.com/iamseanaustin", icon: FaInstagram, label: "Instagram" },
   { href: "https://x.com/iamseanaustin", icon: FaXTwitter, label: "X" },
-  { href: "https://youtube.com/@SeanAustinMusic", icon: FaYoutube, label: "YouTube" },
+  { href: "https://www.youtube.com/@SeanAustin-hc2bo", icon: FaYoutube, label: "YouTube" },
   { href: "https://facebook.com/iamseanaustin", icon: FaFacebook, label: "Facebook" },
   { href: "https://tiktok.com/@iamseanaustin", icon: FaTiktok, label: "TikTok" },
   { href: "https://open.spotify.com/artist/0ZTUFRHKN1R7Se9eq5QTAT", icon: SiSpotify, label: "Spotify" },
@@ -73,14 +74,17 @@ export default function Footer() {
               ))}
             </div>
             <div className="mt-6">
-              <p className="text-sm text-muted-foreground">Booking & Management</p>
-              <a
-                href="mailto:Iamseanaustin@icloud.com"
-                data-testid="link-footer-email"
-                className="text-sm text-primary hover:underline"
-              >
-                Iamseanaustin@icloud.com
-              </a>
+              <p className="text-sm text-muted-foreground flex items-center gap-2">
+                Booking & Management
+                <a
+                  href="mailto:iamseanaustin@icloud.com"
+                  data-testid="link-footer-email"
+                  className="text-primary hover:text-primary/80 inline-flex items-center"
+                  aria-label="Email booking"
+                >
+                  <Mail className="w-5 h-5" />
+                </a>
+              </p>
             </div>
           </div>
         </div>
