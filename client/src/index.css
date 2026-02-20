@@ -27,3 +27,26 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS viewport height fix */
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+
+  /* Fix for backdrop-blur on iOS */
+  .backdrop-blur-sm {
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+/* Ensure smooth scrolling on iOS */
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix for iOS button styling */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
