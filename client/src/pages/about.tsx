@@ -1,5 +1,15 @@
 import SEO from "@/components/seo";
 
+// Photo gallery images from attached_assets
+const photos = [
+  { src: "/attached_assets/Sean_Austin_1771278867767.jpg", alt: "Sean Austin" },
+  { src: "/attached_assets/Sean_Austin_2_1771278867766.jpg", alt: "Sean Austin performing" },
+  { src: "/attached_assets/Sean_Austin_4_1771278867766.jpg", alt: "Sean Austin live" },
+  { src: "/attached_assets/sean_austin_5_1771278867767.jpg", alt: "Sean Austin portrait" },
+  { src: "/attached_assets/Sean_Austin3_1771278687231.jpg", alt: "Sean Austin on stage" },
+  { src: "/attached_assets/IMG_0989_1771277715074.jpg", alt: "Sean Austin promo" },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -8,14 +18,15 @@ export default function AboutPage() {
         description="Learn about Sean Austin, international reggae artist blending Jamaican roots with modern global sound."
       />
       <div className="min-h-screen py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="font-display text-4xl md:text-5xl font-bold text-primary">
               About Sean Austin
             </h1>
           </div>
 
-          <div className="prose prose-invert max-w-none">
+          {/* Bio Section */}
+          <div className="max-w-4xl mx-auto mb-16">
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
                 Sean Austin is an international reggae artist who blends traditional Jamaican roots
@@ -34,7 +45,8 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16">
             <div>
               <div className="font-display text-4xl font-bold text-primary">1M+</div>
               <div className="text-muted-foreground">Streams</div>
@@ -46,6 +58,28 @@ export default function AboutPage() {
             <div>
               <div className="font-display text-4xl font-bold text-primary">10K+</div>
               <div className="text-muted-foreground">Followers</div>
+            </div>
+          </div>
+
+          {/* Photo Gallery */}
+          <div className="mt-16">
+            <h2 className="font-display text-2xl font-bold text-primary text-center mb-8">
+              Photo Gallery
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {photos.map((photo, index) => (
+                <div
+                  key={index}
+                  className="aspect-square overflow-hidden rounded-lg bg-card/50"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
