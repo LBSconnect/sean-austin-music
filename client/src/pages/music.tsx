@@ -3,44 +3,36 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Music, ExternalLink } from "lucide-react";
 
-// DistroKid Hyperfollow links with album artwork from Spotify
+// Album releases with Spotify links and artwork
 const releases = [
   {
-    id: "after-midnight",
-    title: "After Midnight",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/after-midnight",
-    cover: "https://i.scdn.co/image/ab67616d0000b273443a4503329897b684a7f6e6",
-    year: "2026",
-    type: "EP",
-  },
-  {
     id: "afronomixx",
-    title: "Afronomixx",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/afronomixx",
+    title: "AFRONOMIXX",
+    url: "https://open.spotify.com/album/7jvc3J4O8FBlokmrWXGwdg",
     cover: "https://i.scdn.co/image/ab67616d0000b273676f9071e296fc06e4430328",
     year: "2023",
     type: "Album",
   },
   {
-    id: "purple-hearts-2",
+    id: "purple-hearts",
     title: "Purple Hearts",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/purple-hearts-2",
+    url: "https://open.spotify.com/album/1Z67dCz0fc2VZlOqnGQqJD",
     cover: "https://i.scdn.co/image/ab67616d0000b273afa69c6a7435138b3ad328f0",
     year: "2021",
     type: "Album",
   },
   {
     id: "2020-pt-2-reloaded",
-    title: "2020 Pt. 2: Reloaded",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/2020-pt-2-reloaded",
+    title: "2020, Pt. 2: Reloaded",
+    url: "https://open.spotify.com/album/3yPtBeXuOxbzC6uCVnmnLp",
     cover: "https://i.scdn.co/image/ab67616d0000b273bb43407853b3f3ebc3857b0d",
     year: "2020",
     type: "Album",
   },
   {
     id: "2020-pt-1",
-    title: "2020 Pt. 1",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/sean-austin-2020-pt-1",
+    title: "2020, Pt. 1",
+    url: "https://open.spotify.com/album/6LmilslOHuK3Vq4h2quiJv",
     cover: "https://i.scdn.co/image/ab67616d0000b2734b511a1471b3866dc0d98b61",
     year: "2020",
     type: "Album",
