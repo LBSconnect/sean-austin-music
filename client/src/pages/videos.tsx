@@ -95,8 +95,8 @@ const videos = [
   {
     id: "IY9wgAdXaPw",
     title: "Bring It Back",
-    subtitle: "Live Performance",
-    category: "Live Performances",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
     date: "2024",
     featured: false,
   },
@@ -177,6 +177,22 @@ const videos = [
   {
     id: "RlYCrwYhGME",
     title: "House of Blues Set",
+    subtitle: "Live Performance",
+    category: "Live Performances",
+    date: "2024",
+    featured: false,
+  },
+  {
+    id: "shM3DEuVpqo",
+    title: "Same Girl Live",
+    subtitle: "Austin Reggae Festival 2022 with Lion Heights",
+    category: "Live Performances",
+    date: "2022",
+    featured: false,
+  },
+  {
+    id: "ZInUFvk4GuE",
+    title: "House of Blues Houston",
     subtitle: "Live Performance",
     category: "Live Performances",
     date: "2024",

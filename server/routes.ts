@@ -274,26 +274,49 @@ export async function registerRoutes(
     }
   });
 
-  // Stripe: List fan club membership products with prices
+  // Stripe: List fan club membership products with prices (fetches directly from Stripe API)
   app.get("/api/fan-club/products", async (_req, res) => {
     try {
-      const result = await db.execute(sql`
-        SELECT 
-          p.id as product_id,
-          p.name as product_name,
-          p.description as product_description,
-          p.metadata as product_metadata,
-          pr.id as price_id,
-          pr.unit_amount,
-          pr.currency,
-          pr.recurring,
-          pr.metadata as price_metadata
-        FROM stripe.products p
-        JOIN stripe.prices pr ON pr.product = p.id AND pr.active = true
-        WHERE p.active = true AND p.metadata->>'category' = 'fan-club'
-        ORDER BY pr.unit_amount ASC
-      `);
-      res.json(result.rows);
+      const stripe = await getUncachableStripeClient();
+
+      // Fetch products with fan-club category from Stripe
+      const products = await stripe.products.list({
+        active: true,
+        limit: 10,
+      });
+
+      // Filter for fan-club category
+      const fanClubProducts = products.data.filter(
+        (p) => p.metadata?.category === "fan-club"
+      );
+
+      // Get prices for each product
+      const result = [];
+      for (const product of fanClubProducts) {
+        const prices = await stripe.prices.list({
+          product: product.id,
+          active: true,
+        });
+
+        for (const price of prices.data) {
+          result.push({
+            product_id: product.id,
+            product_name: product.name,
+            product_description: product.description,
+            product_metadata: product.metadata,
+            price_id: price.id,
+            unit_amount: price.unit_amount,
+            currency: price.currency,
+            recurring: price.recurring,
+            price_metadata: price.metadata,
+          });
+        }
+      }
+
+      // Sort by price ascending
+      result.sort((a, b) => (a.unit_amount || 0) - (b.unit_amount || 0));
+
+      res.json(result);
     } catch (error) {
       console.error("Error fetching fan club products:", error);
       res.status(500).json({ error: "Failed to fetch products" });
@@ -308,17 +331,18 @@ export async function registerRoutes(
         return res.status(400).json({ error: "Valid price ID and email required" });
       }
 
-      const allowedPrices = await db.execute(sql`
-        SELECT pr.id FROM stripe.prices pr
-        JOIN stripe.products p ON pr.product = p.id
-        WHERE p.metadata->>'category' = 'fan-club' AND pr.active = true AND p.active = true
-      `);
-      const allowedPriceIds = allowedPrices.rows.map((r: any) => r.id);
-      if (!allowedPriceIds.includes(priceId)) {
+      const stripe = await getUncachableStripeClient();
+
+      // Validate price belongs to a fan-club product by fetching from Stripe directly
+      const price = await stripe.prices.retrieve(priceId);
+      if (!price.active) {
         return res.status(400).json({ error: "Invalid price selected" });
       }
 
-      const stripe = await getUncachableStripeClient();
+      const product = await stripe.products.retrieve(price.product as string);
+      if (!product.active || product.metadata?.category !== "fan-club") {
+        return res.status(400).json({ error: "Invalid price selected" });
+      }
 
       const customers = await stripe.customers.list({ email, limit: 1 });
       let customerId: string;
