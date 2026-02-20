@@ -1,15 +1,38 @@
-import { useQuery } from "@tanstack/react-query";
 import SEO from "@/components/seo";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Music, ExternalLink } from "lucide-react";
-import type { MusicRelease } from "@shared/schema";
+
+// DistroKid Hyperfollow links - these auto-update with streaming links
+const releases = [
+  {
+    id: "after-midnight",
+    title: "After Midnight",
+    url: "https://distrokid.com/hyperfollow/seanaustin1/after-midnight",
+  },
+  {
+    id: "afronomixx",
+    title: "Afronomixx",
+    url: "https://distrokid.com/hyperfollow/seanaustin1/afronomixx",
+  },
+  {
+    id: "purple-hearts-2",
+    title: "Purple Hearts 2",
+    url: "https://distrokid.com/hyperfollow/seanaustin1/purple-hearts-2",
+  },
+  {
+    id: "2020-pt-2-reloaded",
+    title: "2020 Pt. 2 Reloaded",
+    url: "https://distrokid.com/hyperfollow/seanaustin1/2020-pt-2-reloaded",
+  },
+  {
+    id: "2020-pt-1",
+    title: "2020 Pt. 1",
+    url: "https://distrokid.com/hyperfollow/seanaustin1/sean-austin-2020-pt-1",
+  },
+];
 
 export default function MusicPage() {
-  const { data: releases, isLoading } = useQuery<MusicRelease[]>({
-    queryKey: ["/api/music-releases"],
-  });
-
   return (
     <>
       <SEO
@@ -23,73 +46,42 @@ export default function MusicPage() {
               Music
             </h1>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              Stream my latest releases and discover my full discography.
+              Stream my latest releases on your favorite platform.
             </p>
           </div>
 
-          {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <Card key={i} className="bg-card/50">
-                  <CardContent className="p-6">
-                    <div className="aspect-square bg-muted animate-pulse rounded-lg mb-4" />
-                    <div className="h-6 bg-muted animate-pulse rounded mb-2" />
-                    <div className="h-4 bg-muted animate-pulse rounded w-1/2" />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : releases && releases.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {releases.map((release) => (
-                <Card key={release.id} className="bg-card/50 hover:bg-card/70 transition-colors">
-                  <CardContent className="p-6">
-                    {release.coverUrl && (
-                      <img
-                        src={release.coverUrl}
-                        alt={release.title}
-                        className="aspect-square object-cover rounded-lg mb-4"
-                        loading="lazy"
-                      />
-                    )}
-                    <h3 className="font-display text-xl font-semibold text-primary">
+          {/* Releases Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {releases.map((release) => (
+              <a
+                key={release.id}
+                href={release.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <Card className="bg-card/50 hover:bg-card/70 transition-all hover:scale-105 h-full">
+                  <CardContent className="p-6 flex flex-col items-center justify-center min-h-[200px]">
+                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
+                      <Music className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="font-display text-xl font-semibold text-primary text-center">
                       {release.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground capitalize">
-                      {release.type} {release.releaseDate && `• ${release.releaseDate}`}
+                    <p className="text-sm text-muted-foreground mt-2 flex items-center gap-1">
+                      <ExternalLink className="w-3 h-3" />
+                      Stream Now
                     </p>
-                    <div className="mt-4 flex gap-2 flex-wrap">
-                      {release.spotifyUrl && (
-                        <a href={release.spotifyUrl} target="_blank" rel="noopener noreferrer">
-                          <Button size="sm" variant="outline">
-                            <Music className="w-4 h-4 mr-1" />
-                            Spotify
-                          </Button>
-                        </a>
-                      )}
-                      {release.appleMusicUrl && (
-                        <a href={release.appleMusicUrl} target="_blank" rel="noopener noreferrer">
-                          <Button size="sm" variant="outline">
-                            <ExternalLink className="w-4 h-4 mr-1" />
-                            Apple Music
-                          </Button>
-                        </a>
-                      )}
-                    </div>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <Music className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
-              <p className="text-muted-foreground">No releases available yet.</p>
-            </div>
-          )}
+              </a>
+            ))}
+          </div>
 
-          <div className="mt-16 text-center">
+          {/* Spotify Artist Embed */}
+          <div className="text-center">
             <h2 className="font-display text-2xl font-bold text-primary mb-6">
-              Stream Now
+              Full Discography on Spotify
             </h2>
             <div className="max-w-md mx-auto">
               <iframe
