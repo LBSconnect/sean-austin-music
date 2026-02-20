@@ -3,32 +3,47 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Music, ExternalLink } from "lucide-react";
 
-// DistroKid Hyperfollow links - these auto-update with streaming links
+// DistroKid Hyperfollow links with album artwork from Spotify
 const releases = [
   {
     id: "after-midnight",
     title: "After Midnight",
     url: "https://distrokid.com/hyperfollow/seanaustin1/after-midnight",
+    cover: "https://i.scdn.co/image/ab67616d0000b273443a4503329897b684a7f6e6",
+    year: "2026",
+    type: "EP",
   },
   {
     id: "afronomixx",
     title: "Afronomixx",
     url: "https://distrokid.com/hyperfollow/seanaustin1/afronomixx",
+    cover: "https://i.scdn.co/image/ab67616d0000b273676f9071e296fc06e4430328",
+    year: "2023",
+    type: "Album",
   },
   {
     id: "purple-hearts-2",
-    title: "Purple Hearts 2",
+    title: "Purple Hearts",
     url: "https://distrokid.com/hyperfollow/seanaustin1/purple-hearts-2",
+    cover: "https://i.scdn.co/image/ab67616d0000b273afa69c6a7435138b3ad328f0",
+    year: "2021",
+    type: "Album",
   },
   {
     id: "2020-pt-2-reloaded",
-    title: "2020 Pt. 2 Reloaded",
+    title: "2020 Pt. 2: Reloaded",
     url: "https://distrokid.com/hyperfollow/seanaustin1/2020-pt-2-reloaded",
+    cover: "https://i.scdn.co/image/ab67616d0000b273bb43407853b3f3ebc3857b0d",
+    year: "2020",
+    type: "Album",
   },
   {
     id: "2020-pt-1",
     title: "2020 Pt. 1",
     url: "https://distrokid.com/hyperfollow/seanaustin1/sean-austin-2020-pt-1",
+    cover: "https://i.scdn.co/image/ab67616d0000b2734b511a1471b3866dc0d98b61",
+    year: "2020",
+    type: "Album",
   },
 ];
 
@@ -60,14 +75,21 @@ export default function MusicPage() {
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <Card className="bg-card/50 hover:bg-card/70 transition-all hover:scale-105 h-full">
-                  <CardContent className="p-6 flex flex-col items-center justify-center min-h-[200px]">
-                    <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
-                      <Music className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="font-display text-xl font-semibold text-primary text-center">
+                <Card className="bg-card/50 hover:bg-card/70 transition-all hover:scale-105 h-full overflow-hidden">
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={release.cover}
+                      alt={`${release.title} album cover`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <CardContent className="p-4">
+                    <h3 className="font-display text-lg font-semibold text-primary">
                       {release.title}
                     </h3>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {release.year} • {release.type}
+                    </p>
                     <p className="text-sm text-muted-foreground mt-2 flex items-center gap-1">
                       <ExternalLink className="w-3 h-3" />
                       Stream Now
