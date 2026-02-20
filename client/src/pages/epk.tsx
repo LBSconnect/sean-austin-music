@@ -77,11 +77,11 @@ export default function EPKPage() {
                 <CardTitle>Press Photos</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="mb-4">
+                <div className="mb-4 flex items-center justify-center bg-card/30 rounded-lg overflow-hidden">
                   <img
                     src={PRESS_PHOTO_URL}
                     alt="Sean Austin Press Photo"
-                    className="w-full h-48 object-cover rounded-lg mb-4"
+                    className="w-full h-auto object-contain rounded-lg max-h-[300px] sm:max-h-[350px] md:max-h-[400px]"
                   />
                 </div>
                 <p className="text-muted-foreground mb-4">
