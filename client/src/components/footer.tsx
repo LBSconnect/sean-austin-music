@@ -16,7 +16,7 @@ const quickLinks = [
 const socialLinks = [
   { href: "https://www.instagram.com/iamseanaustin", icon: FaInstagram, label: "Instagram" },
   { href: "https://www.twitter.com/iamseanaustin", icon: FaXTwitter, label: "Twitter" },
-  { href: "https://www.youtube.com/@SeanAustin-hc2bo", icon: FaYoutube, label: "YouTube" },
+  { href: "https://www.youtube.com/@iamseanaustin", icon: FaYoutube, label: "YouTube" },
   { href: "https://www.facebook.com/pg/IamSeanAustin", icon: FaFacebook, label: "Facebook" },
   { href: "https://tiktok.com/@iamseanaustin", icon: FaTiktok, label: "TikTok" },
   { href: "https://open.spotify.com/artist/0ZTUFRHKN1R7Se9eq5QTAT", icon: SiSpotify, label: "Spotify" },

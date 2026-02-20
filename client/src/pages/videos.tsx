@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Play } from "lucide-react";
 
 // YouTube Channel
-const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@SeanAustin-hc2bo";
+const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@iamseanaustin";
 
 export default function VideosPage() {
   return (
