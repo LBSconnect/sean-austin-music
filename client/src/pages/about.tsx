@@ -2,16 +2,6 @@ import SEO from "@/components/seo";
 import { useEffect } from "react";
 import { FaInstagram } from "react-icons/fa6";
 
-// Photo gallery images from attached_assets
-const photos = [
-  { src: "/attached_assets/Sean_Austin_1771278867767.jpg", alt: "Sean Austin" },
-  { src: "/attached_assets/Sean_Austin_2_1771278867766.jpg", alt: "Sean Austin performing" },
-  { src: "/attached_assets/Sean_Austin_4_1771278867766.jpg", alt: "Sean Austin live" },
-  { src: "/attached_assets/sean_austin_5_1771278867767.jpg", alt: "Sean Austin portrait" },
-  { src: "/attached_assets/Sean_Austin3_1771278687231.jpg", alt: "Sean Austin on stage" },
-  { src: "/attached_assets/IMG_0989_1771277715074.jpg", alt: "Sean Austin promo" },
-];
-
 export default function AboutPage() {
   // Load Instagram embed script
   useEffect(() => {
@@ -72,28 +62,6 @@ export default function AboutPage() {
             <div>
               <div className="font-display text-4xl font-bold text-primary">10K+</div>
               <div className="text-muted-foreground">Followers</div>
-            </div>
-          </div>
-
-          {/* Photo Gallery */}
-          <div className="mt-16">
-            <h2 className="font-display text-2xl font-bold text-primary text-center mb-8">
-              Photo Gallery
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {photos.map((photo, index) => (
-                <div
-                  key={index}
-                  className="aspect-square overflow-hidden rounded-lg bg-card/50"
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
             </div>
           </div>
 
