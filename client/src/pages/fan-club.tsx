@@ -64,8 +64,18 @@ export default function FanClubPage() {
         title="Fan Club - Sean Austin"
         description="Join Sean Austin's Fan Club for exclusive content, early access, and more."
       />
-      <div className="min-h-screen py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen py-20 px-6 relative">
+        {/* Background Image with 50% opacity */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/attached_assets/Sean_Austin_1771278867767.jpg')",
+            opacity: 0.5,
+          }}
+        />
+        <div className="absolute inset-0 bg-background/50" />
+
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <h1 className="font-display text-4xl md:text-5xl font-bold text-primary">
               Fan Club
