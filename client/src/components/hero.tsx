@@ -37,7 +37,7 @@ export default function Hero() {
               Stream Now
             </Button>
           </a>
-          <a href="#videos">
+          <a href="/videos">
             <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm border-white/20 text-white" data-testid="button-watch-video">
               <Play className="w-4 h-4 mr-2" />
               Watch Video

@@ -84,12 +84,12 @@ export default function AboutPage() {
               {photos.map((photo, index) => (
                 <div
                   key={index}
-                  className="overflow-hidden rounded-lg bg-card/50 flex items-center justify-center"
+                  className="aspect-square overflow-hidden rounded-lg bg-card/50"
                 >
                   <img
                     src={photo.src}
                     alt={photo.alt}
-                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300 max-h-[400px] sm:max-h-[350px] md:max-h-[300px]"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>

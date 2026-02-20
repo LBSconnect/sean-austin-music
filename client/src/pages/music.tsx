@@ -3,15 +3,23 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Music, ExternalLink } from "lucide-react";
 
-// Album releases with artwork
+// Album releases with artwork (using Spotify cover art URLs)
 const releases = [
   {
     id: "after-midnight",
     title: "After Midnight",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/after-midnight",
-    cover: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F1772803--16E21E96-9BDD-47A1-B32F6C01C4643EC0--0--463122--IMG3061.jpg?fm=jpg&q=75&w=800",
+    url: "https://open.spotify.com/album/4uAy6vNkZGeFdxjNy30A5M",
+    cover: "https://i.scdn.co/image/ab67616d0000b273443a4503329897b684a7f6e6",
     year: "2026",
     type: "EP",
+  },
+  {
+    id: "mercy",
+    title: "Mercy",
+    url: "https://open.spotify.com/album/2mTYcXq3dwObt3twqtwImR",
+    cover: "https://i.scdn.co/image/ab67616d0000b27320f844f6411b6297c88bf780",
+    year: "2024",
+    type: "Single",
   },
   {
     id: "afronomixx",
@@ -24,8 +32,16 @@ const releases = [
   {
     id: "nice-thing",
     title: "Nice Thing (feat. Dela Dee)",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/nice-thing-feat-dela-dee",
-    cover: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2Fhyperfollow-blob_image_1772803_9u2px8f7jn9sta527sbhy_1716307416449.jpg?fm=jpg&q=75&w=800",
+    url: "https://open.spotify.com/album/3d274ImVTM6voehn2N5akE",
+    cover: "https://i.scdn.co/image/ab67616d0000b27337fe80de3a5f9aece1b1247e",
+    year: "2023",
+    type: "Single",
+  },
+  {
+    id: "how-deep-is-your-love",
+    title: "How Deep Is Your Love",
+    url: "https://open.spotify.com/album/4PnNvsSztrcF5J0xRsNggN",
+    cover: "https://i.scdn.co/image/ab67616d0000b2732924938dd6190736743dfe7d",
     year: "2023",
     type: "Single",
   },
@@ -40,16 +56,16 @@ const releases = [
   {
     id: "same-girl",
     title: "The Same Girl (feat. Lion Heights)",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/the-same-girl-feat-lion-heights",
-    cover: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2Fhyperfollow-blob_image_1772803_itd6wq34jjytmm6dsfbdj_1716307475370.jpg?fm=jpg&q=75&w=800",
+    url: "https://open.spotify.com/album/48ZbMV1G84CD1JcONeP2mG",
+    cover: "https://i.scdn.co/image/ab67616d0000b273db09f1fd7f05a8f6d7ea17a4",
     year: "2021",
     type: "Single",
   },
   {
-    id: "dont-do-me-like",
-    title: "Don't Do Me Like",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/dont-do-me-like",
-    cover: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F1772803--4267D217-EC27-4566-A1B5FEE4AC22842C--1613622692427--Albumcover.jpg?fm=jpg&q=75&w=800",
+    id: "confessions",
+    title: "Confessions",
+    url: "https://open.spotify.com/album/5dFZAtVtZHrU0f3qFGgXsE",
+    cover: "https://i.scdn.co/image/ab67616d0000b2736cb7bb182efd62cf4581d18c",
     year: "2021",
     type: "Single",
   },
@@ -60,22 +76,6 @@ const releases = [
     cover: "https://i.scdn.co/image/ab67616d0000b273bb43407853b3f3ebc3857b0d",
     year: "2020",
     type: "Album",
-  },
-  {
-    id: "teddy-2-the-future",
-    title: "Teddy 2 The Future",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/teddy-2-the-future",
-    cover: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2F1772803--120E4112-0F7F-4027-8D838E87D8D876A4--1598151446673--albumart.jpg?fm=jpg&q=75&w=800",
-    year: "2020",
-    type: "Album",
-  },
-  {
-    id: "one-love",
-    title: "One Love (feat. Lion Heights)",
-    url: "https://distrokid.com/hyperfollow/seanaustin1/one-love-feat-lion-heights",
-    cover: "https://distrokid.imgix.net/http%3A%2F%2Fgather.fandalism.com%2Fhyperfollow-blob_image_1772803_64gabysmlbeo8mc7gkuz8_1716307293279.jpg?fm=jpg&q=75&w=800",
-    year: "2020",
-    type: "Single",
   },
   {
     id: "2020-pt-1",

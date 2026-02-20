@@ -10,6 +10,7 @@ const quickLinks = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/merch", label: "Merch" },
+  { href: "/fan-club", label: "Fan Club" },
   { href: "/epk", label: "Press Kit" },
 ];
 
