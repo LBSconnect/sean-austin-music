@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { User, Crown } from "lucide-react";
+import { User } from "lucide-react";
 
 export default function Story() {
   return (
@@ -10,12 +10,6 @@ export default function Story() {
             <Button variant="outline" size="lg">
               <User className="w-4 h-4 mr-2" />
               Learn More
-            </Button>
-          </a>
-          <a href="/fan-club">
-            <Button size="lg">
-              <Crown className="w-4 h-4 mr-2" />
-              Join Fan Club
             </Button>
           </a>
         </div>
