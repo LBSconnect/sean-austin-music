@@ -80,16 +80,16 @@ export default function AboutPage() {
             <h2 className="font-display text-2xl font-bold text-primary text-center mb-8">
               Photo Gallery
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {photos.map((photo, index) => (
                 <div
                   key={index}
-                  className="aspect-square overflow-hidden rounded-lg bg-card/50"
+                  className="overflow-hidden rounded-lg bg-card/50 flex items-center justify-center"
                 >
                   <img
                     src={photo.src}
                     alt={photo.alt}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300 max-h-[400px] sm:max-h-[350px] md:max-h-[300px]"
                     loading="lazy"
                   />
                 </div>
