@@ -3,7 +3,7 @@ import SEO from "@/components/seo";
 // YouTube channel: https://www.youtube.com/@iamseanaustin
 // To find your channel ID: Go to YouTube Studio > Settings > Channel > Advanced settings
 // The uploads playlist ID is your channel ID with "UC" replaced by "UU"
-const YOUTUBE_CHANNEL_ID = "UCiamseanaustin"; // Replace with actual channel ID
+const YOUTUBE_CHANNEL_ID = "UCqJBSSoAOwwQP0Hk1B06KRg";
 const UPLOADS_PLAYLIST_ID = YOUTUBE_CHANNEL_ID.replace("UC", "UU");
 
 export default function VideosPage() {
