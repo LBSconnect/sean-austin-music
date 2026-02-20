@@ -1,65 +1,53 @@
 import SEO from "@/components/seo";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShoppingBag, ExternalLink, Shirt, Coffee } from "lucide-react";
+import { ShoppingBag, ExternalLink } from "lucide-react";
 
 const STORE_URL = "https://direct.distrokid.com/seanaustin3/";
 
-// Featured merchandise items
+// Featured merchandise items with actual product images
 const featuredItems = [
   {
     id: "tshirt-after-midnight",
     name: "After Midnight T-Shirt",
     price: "$25.00",
     category: "Unisex T-Shirt",
-    description: "Premium cotton tee featuring the After Midnight album art",
-    colors: "Black, Navy, White, Grey",
-    icon: "shirt",
+    image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/c1cedf62a19bfa5158d43acb4de6042954fc61f1/original/5fb7801c-e525-4ddc-87b4-a2071f624b11.png",
   },
   {
     id: "tshirt-afronomixx",
     name: "AFRONOMIXX T-Shirt",
     price: "$25.00",
     category: "Unisex T-Shirt",
-    description: "Show your love for the AFRONOMIXX album",
-    colors: "Black, Navy, White, Grey",
-    icon: "shirt",
+    image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/e54b1957e19c988fbc3ad4615e8d41a307532e40/original/6291500a-2f26-4f93-8d05-5991a33fd8bd.png",
   },
   {
     id: "tshirt-purple-hearts",
     name: "Purple Hearts T-Shirt",
     price: "$25.00",
     category: "Unisex T-Shirt",
-    description: "Rep the Purple Hearts album in style",
-    colors: "Black, Navy, White, Grey",
-    icon: "shirt",
+    image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/fdb248ead60e0ac7f343c841d8594f742bb31cbf/original/0f43e36a-afaf-41f6-8afc-8060fb8fe085.png",
   },
   {
     id: "mug-after-midnight",
     name: "After Midnight Mug",
     price: "$13.00",
     category: "Ceramic Mug",
-    description: "Glossy ceramic mug, microwave & dishwasher safe",
-    colors: "Multiple rim colors available",
-    icon: "mug",
+    image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/25a8ca6bc060f4c513e935121899a9d1fb484c68/original/90056f4a-8b0f-4d43-b0e0-742181f55f90.png",
   },
   {
     id: "mug-teddy",
     name: "Teddy 2 The Future Mug",
     price: "$13.00",
     category: "Ceramic Mug",
-    description: "Start your morning with some reggae vibes",
-    colors: "Multiple rim colors available",
-    icon: "mug",
+    image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/aedcc545bebb118c02f0636b107876b796f44907/original/ac776715-ecaf-4116-9574-0bbe552dbcbc.png",
   },
   {
     id: "tote-after-midnight",
     name: "After Midnight Tote Bag",
     price: "$26.00",
     category: "Tote Bag",
-    description: "100% cotton with reinforced handle stitching",
-    colors: "Black, Natural",
-    icon: "bag",
+    image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/da39cf1ef5e5f0540d8176c971b86271ff49b8d5/original/8803a50d-b911-4d11-92cb-2ddb2fc1d2c9.png",
   },
 ];
 
@@ -95,13 +83,15 @@ export default function MerchPage() {
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <Card className="bg-card/50 hover:bg-card/70 transition-all hover:scale-105 h-full">
-                    <CardContent className="p-6">
-                      <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/30 transition-colors">
-                        {item.icon === "shirt" && <Shirt className="w-8 h-8 text-primary" />}
-                        {item.icon === "mug" && <Coffee className="w-8 h-8 text-primary" />}
-                        {item.icon === "bag" && <ShoppingBag className="w-8 h-8 text-primary" />}
-                      </div>
+                  <Card className="bg-card/50 hover:bg-card/70 transition-all hover:scale-105 h-full overflow-hidden">
+                    <div className="aspect-square overflow-hidden bg-white">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <CardContent className="p-4">
                       <div className="text-center">
                         <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                           {item.category}
@@ -109,12 +99,6 @@ export default function MerchPage() {
                         <h3 className="font-display text-lg font-semibold text-primary mb-2">
                           {item.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground mb-2">
-                          {item.description}
-                        </p>
-                        <p className="text-xs text-muted-foreground mb-3">
-                          {item.colors}
-                        </p>
                         <p className="text-xl font-bold text-primary">
                           {item.price}
                         </p>
