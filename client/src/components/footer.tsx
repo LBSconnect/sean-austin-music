@@ -7,7 +7,7 @@ const quickLinks = [
   { href: "/music", label: "Music" },
   { href: "/videos", label: "Videos" },
   { href: "/tour", label: "Tour Dates" },
-  { href: "/about", label: "About" },
+  { href: "/social", label: "Social" },
   { href: "/contact", label: "Contact" },
   { href: "/merch", label: "Merch" },
   { href: "/fan-club", label: "Fan Club" },

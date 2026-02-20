@@ -13,7 +13,7 @@ import Home from "@/pages/home";
 import MusicPage from "@/pages/music";
 import VideosPage from "@/pages/videos";
 import TourPage from "@/pages/tour";
-import AboutPage from "@/pages/about";
+import SocialPage from "@/pages/about";
 import ContactPage from "@/pages/contact";
 import EPKPage from "@/pages/epk";
 import FanClubPage from "@/pages/fan-club";
@@ -30,7 +30,7 @@ function PublicRouter() {
       <Route path="/music" component={MusicPage} />
       <Route path="/videos" component={VideosPage} />
       <Route path="/tour" component={TourPage} />
-      <Route path="/about" component={AboutPage} />
+      <Route path="/social" component={SocialPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/epk" component={EPKPage} />
       <Route path="/fan-club" component={FanClubPage} />

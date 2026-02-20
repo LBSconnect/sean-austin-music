@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Music, ShoppingBag } from "lucide-react";
+import { SiApplemusic } from "react-icons/si";
 
 export default function FeaturedRelease() {
   return (
@@ -12,6 +13,31 @@ export default function FeaturedRelease() {
         <p className="mt-4 text-muted-foreground">
           Experience soulful reggae storytelling with a modern edge. Stream now on all platforms.
         </p>
+
+        {/* Apple Music Album Link with Cover Art */}
+        <div className="mt-8">
+          <a
+            href="https://music.apple.com/us/album/after-midnight-feat-friends-ep/1876787290"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block group"
+          >
+            <div className="relative mx-auto w-64 h-64 rounded-lg overflow-hidden shadow-lg group-hover:scale-105 transition-transform">
+              <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8f/8c/c9/8f8cc9f8-8ddd-7b85-1b12-c7c9d54e7e8e/198391768767.jpg/600x600bb.jpg"
+                alt="After Midnight EP Cover"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <SiApplemusic className="w-12 h-12 text-white" />
+              </div>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground flex items-center justify-center gap-2 group-hover:text-primary transition-colors">
+              <SiApplemusic className="w-4 h-4" />
+              Listen on Apple Music
+            </p>
+          </a>
+        </div>
 
         <div className="mt-8">
           <iframe

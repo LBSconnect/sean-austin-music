@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/videos", label: "Videos" },
   { href: "/merch", label: "Merch" },
   { href: "/tour", label: "Tour" },
-  { href: "/about", label: "About" },
+  { href: "/social", label: "Social" },
   { href: "/contact", label: "Contact" },
   { href: "/fan-club", label: "Fan Club" },
   { href: "/epk", label: "EPK" },
