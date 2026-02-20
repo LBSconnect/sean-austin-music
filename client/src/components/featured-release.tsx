@@ -24,7 +24,7 @@ export default function FeaturedRelease() {
           >
             <div className="relative mx-auto w-64 h-64 rounded-lg overflow-hidden shadow-lg group-hover:scale-105 transition-transform">
               <img
-                src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8f/8c/c9/8f8cc9f8-8ddd-7b85-1b12-c7c9d54e7e8e/198391768767.jpg/600x600bb.jpg"
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/67/3c/e5/673ce540-b3a4-331f-7b7b-0e3beb5f88a0/artwork.jpg/600x600bb.jpg"
                 alt="After Midnight EP Cover"
                 className="w-full h-full object-cover"
               />
