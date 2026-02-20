@@ -152,6 +152,7 @@ export default function FanClubPage() {
                     "Behind-the-scenes content",
                     "Direct messages",
                     "Member-only merch drops",
+                    "Free DJ dubplates and drops",
                   ].map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-muted-foreground">
                       <Check className="w-4 h-4 text-green-500" />
