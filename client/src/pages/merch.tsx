@@ -5,7 +5,7 @@ import { ShoppingBag, ExternalLink } from "lucide-react";
 
 const STORE_URL = "https://direct.distrokid.com/seanaustin3/";
 
-// Featured merchandise items with actual product images
+// Featured merchandise items with actual product images and direct links
 const featuredItems = [
   {
     id: "tshirt-after-midnight",
@@ -13,6 +13,7 @@ const featuredItems = [
     price: "$25.00",
     category: "Unisex T-Shirt",
     image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/c1cedf62a19bfa5158d43acb4de6042954fc61f1/original/5fb7801c-e525-4ddc-87b4-a2071f624b11.png",
+    url: "https://direct.distrokid.com/seanaustin3/product/1216562-after-midnight-unisex-t-shirt",
   },
   {
     id: "tshirt-afronomixx",
@@ -20,6 +21,7 @@ const featuredItems = [
     price: "$25.00",
     category: "Unisex T-Shirt",
     image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/e54b1957e19c988fbc3ad4615e8d41a307532e40/original/6291500a-2f26-4f93-8d05-5991a33fd8bd.png",
+    url: "https://direct.distrokid.com/seanaustin3/product/1216576-afronomixx-unisex-t-shirt",
   },
   {
     id: "tshirt-purple-hearts",
@@ -27,6 +29,7 @@ const featuredItems = [
     price: "$25.00",
     category: "Unisex T-Shirt",
     image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/fdb248ead60e0ac7f343c841d8594f742bb31cbf/original/0f43e36a-afaf-41f6-8afc-8060fb8fe085.png",
+    url: "https://direct.distrokid.com/seanaustin3/product/1216567-purple-hearts-unisex-t-shirt",
   },
   {
     id: "mug-after-midnight",
@@ -34,6 +37,7 @@ const featuredItems = [
     price: "$13.00",
     category: "Ceramic Mug",
     image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/25a8ca6bc060f4c513e935121899a9d1fb484c68/original/90056f4a-8b0f-4d43-b0e0-742181f55f90.png",
+    url: "https://direct.distrokid.com/seanaustin3/product/1216563-after-midnight-ceramic-mug",
   },
   {
     id: "mug-teddy",
@@ -41,6 +45,7 @@ const featuredItems = [
     price: "$13.00",
     category: "Ceramic Mug",
     image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/aedcc545bebb118c02f0636b107876b796f44907/original/ac776715-ecaf-4116-9574-0bbe552dbcbc.png",
+    url: "https://direct.distrokid.com/seanaustin3/product/1216584-teddy-2-the-future-ceramic-mug",
   },
   {
     id: "tote-after-midnight",
@@ -48,6 +53,7 @@ const featuredItems = [
     price: "$26.00",
     category: "Tote Bag",
     image: "https://images.zoogletools.com/s:bzglfiles/u/1262585/da39cf1ef5e5f0540d8176c971b86271ff49b8d5/original/8803a50d-b911-4d11-92cb-2ddb2fc1d2c9.png",
+    url: "https://direct.distrokid.com/seanaustin3/product/1216565-after-midnight-tote-bag",
   },
 ];
 
@@ -78,7 +84,7 @@ export default function MerchPage() {
               {featuredItems.map((item) => (
                 <a
                   key={item.id}
-                  href={STORE_URL}
+                  href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block group"

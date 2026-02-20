@@ -65,15 +65,19 @@ export default function FanClubPage() {
         description="Join Sean Austin's Fan Club for exclusive content, early access, and more."
       />
       <div className="min-h-screen py-20 px-6 relative">
-        {/* Background Image with 50% opacity */}
+        {/* Background Rasta Logo with 25% opacity */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/attached_assets/Sean_Austin_1771278867767.jpg')",
-            opacity: 0.5,
-          }}
-        />
-        <div className="absolute inset-0 bg-background/50" />
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ opacity: 0.25 }}
+        >
+          <img
+            src="/attached_assets/logo_white_bg_1771277560431.png"
+            alt=""
+            className="w-full max-w-2xl h-auto"
+            aria-hidden="true"
+          />
+        </div>
+        <div className="absolute inset-0 bg-background/70" />
 
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-12">

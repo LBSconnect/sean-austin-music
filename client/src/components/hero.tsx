@@ -16,29 +16,13 @@ export default function Hero() {
           <img
             src={heroLogo}
             alt="Sean Austin"
-            className="w-full h-auto opacity-90"
+            className="w-full h-auto"
             style={{
-              WebkitClipPath: "inset(10%)",
-              clipPath: "inset(10%)",
-              transform: "scale(1.25)",
-              WebkitTransform: "scale(1.25)"
+              WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 70%)",
+              maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 70%)"
             }}
             data-testid="img-hero-logo"
           />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              WebkitClipPath: "inset(10%)",
-              clipPath: "inset(10%)",
-              transform: "scale(1.25)",
-              WebkitTransform: "scale(1.25)"
-            }}
-          >
-            <div className="absolute inset-x-0 top-0 h-12 sm:h-24 bg-gradient-to-b from-background to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-12 sm:h-24 bg-gradient-to-t from-background to-transparent" />
-            <div className="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-background to-transparent" />
-            <div className="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-background to-transparent" />
-          </div>
         </div>
         <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-primary leading-tight" data-testid="text-hero-headline">
           ROOTS. ROCK. REGGAE.
