@@ -24,6 +24,24 @@ export default function VideosPage() {
             </p>
           </div>
 
+          {/* Featured Video - Sunflower */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <h2 className="font-display text-2xl font-bold text-primary text-center mb-6">
+              Sunflower (Official Video)
+            </h2>
+            <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/_bHwEJ4S5-w"
+                title="Sean Austin - Sunflower (Official Video)"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg"
+              />
+            </div>
+          </div>
+
           {/* YouTube Channel Card */}
           <div className="max-w-2xl mx-auto">
             <Card className="bg-card/50 hover:bg-card/70 transition-colors">
