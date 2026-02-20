@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Calendar, Mail } from "lucide-react";
+import { Calendar } from "lucide-react";
 import type { TourDate } from "@shared/schema";
 
 export default function TourPreview() {
@@ -36,17 +36,11 @@ export default function TourPreview() {
             <p className="text-muted-foreground">New dates coming soon!</p>
           )}
         </div>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8">
           <a href="/tour">
             <Button variant="outline" size="lg">
               <Calendar className="w-4 h-4 mr-2" />
               View All Dates
-            </Button>
-          </a>
-          <a href="/contact">
-            <Button size="lg">
-              <Mail className="w-4 h-4 mr-2" />
-              Book Sean Austin
             </Button>
           </a>
         </div>

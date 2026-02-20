@@ -1,7 +1,6 @@
 import Hero from "@/components/hero";
 import FeaturedRelease from "@/components/featured-release";
 import TourPreview from "@/components/tour-preview";
-import Story from "@/components/story";
 import SEO from "@/components/seo";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       <Hero />
       <FeaturedRelease />
       <TourPreview />
-      <Story />
     </>
   );
 }
