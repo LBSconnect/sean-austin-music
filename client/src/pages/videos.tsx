@@ -10,26 +10,26 @@ const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@SeanAustinMusic";
 // Video categories
 const categories = ["All", "Music Videos", "Live Performances", "Interviews"];
 
-// Video data - easily extensible
+// Video data from Sean Austin's YouTube channel
 const videos = [
   {
-    id: "_bHwEJ4S5-w",
-    title: "Sunflower",
-    subtitle: "Official Music Video",
-    category: "Music Videos",
-    date: "2024",
-    featured: true,
-  },
-  {
-    id: "dQw4w9WgXcQ", // Placeholder - replace with actual video ID
+    id: "ViNfJ5HTJfM",
     title: "Confessions",
     subtitle: "Official Music Video",
     category: "Music Videos",
     date: "2023",
+    featured: true,
+  },
+  {
+    id: "fjte4utXa-w",
+    title: "Smoke vs Fire",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
+    date: "2024",
     featured: false,
   },
   {
-    id: "dQw4w9WgXcQ", // Placeholder - replace with actual video ID
+    id: "0B0s4Aye4Qk",
     title: "Same Girl",
     subtitle: "feat. Lion Heights",
     category: "Music Videos",
@@ -37,26 +37,74 @@ const videos = [
     featured: false,
   },
   {
-    id: "dQw4w9WgXcQ", // Placeholder - replace with actual video ID
-    title: "Live at Reggae Fest",
-    subtitle: "Full Performance",
+    id: "NG84wpFztB0",
+    title: "Lemonade",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
+    date: "2024",
+    featured: false,
+  },
+  {
+    id: "rdHkejzglRs",
+    title: "My Reality",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
+    date: "2024",
+    featured: false,
+  },
+  {
+    id: "o6sy7x1TZN0",
+    title: "Cause & Effect",
+    subtitle: "feat. Izaris Capetillo",
+    category: "Music Videos",
+    date: "2024",
+    featured: false,
+  },
+  {
+    id: "UfZtWAvtLUE",
+    title: "I'm Not Ready",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
+    date: "2023",
+    featured: false,
+  },
+  {
+    id: "ylpHrCKskgs",
+    title: "Dream",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
+    date: "2023",
+    featured: false,
+  },
+  {
+    id: "gIzrA5xIr5s",
+    title: "I Love You Mamma",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
+    date: "2023",
+    featured: false,
+  },
+  {
+    id: "g83vcZgiRQ8",
+    title: "Don't Do Me Like 2020",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
+    date: "2020",
+    featured: false,
+  },
+  {
+    id: "IY9wgAdXaPw",
+    title: "Bring It Back",
+    subtitle: "Live Performance",
     category: "Live Performances",
     date: "2024",
     featured: false,
   },
   {
-    id: "dQw4w9WgXcQ", // Placeholder - replace with actual video ID
-    title: "Behind the Music",
-    subtitle: "Artist Interview",
-    category: "Interviews",
-    date: "2024",
-    featured: false,
-  },
-  {
-    id: "dQw4w9WgXcQ", // Placeholder - replace with actual video ID
-    title: "Purple Hearts",
-    subtitle: "Acoustic Session",
-    category: "Live Performances",
+    id: "_bHwEJ4S5-w",
+    title: "Sunflower",
+    subtitle: "Official Music Video",
+    category: "Music Videos",
     date: "2024",
     featured: false,
   },
