@@ -1,4 +1,6 @@
 import SEO from "@/components/seo";
+import { useEffect } from "react";
+import { FaInstagram } from "react-icons/fa6";
 
 // Photo gallery images from attached_assets
 const photos = [
@@ -11,6 +13,18 @@ const photos = [
 ];
 
 export default function AboutPage() {
+  // Load Instagram embed script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.instagram.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <>
       <SEO
@@ -80,6 +94,52 @@ export default function AboutPage() {
                   />
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Instagram Feed */}
+          <div className="mt-16">
+            <h2 className="font-display text-2xl font-bold text-primary text-center mb-8 flex items-center justify-center gap-3">
+              <FaInstagram className="w-7 h-7" />
+              Follow on Instagram
+            </h2>
+            <div className="flex justify-center">
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/iamseanaustin/"
+                data-instgrm-version="14"
+                style={{
+                  background: "#FFF",
+                  border: 0,
+                  borderRadius: "3px",
+                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                  margin: "1px",
+                  maxWidth: "540px",
+                  minWidth: "326px",
+                  padding: 0,
+                  width: "calc(100% - 2px)",
+                }}
+              >
+                <a
+                  href="https://www.instagram.com/iamseanaustin/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-4 text-center text-primary hover:underline"
+                >
+                  View @iamseanaustin on Instagram
+                </a>
+              </blockquote>
+            </div>
+            <div className="text-center mt-6">
+              <a
+                href="https://www.instagram.com/iamseanaustin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:underline"
+              >
+                <FaInstagram className="w-5 h-5" />
+                @iamseanaustin
+              </a>
             </div>
           </div>
         </div>
