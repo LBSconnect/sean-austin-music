@@ -25,6 +25,7 @@ export interface IStorage {
 
   // Tour dates
   getTourDates(): Promise<(typeof tourDates.$inferSelect)[]>;
+  getTourDateCount(): Promise<number>;
   createTourDate(data: InsertTourDate): Promise<typeof tourDates.$inferSelect>;
   updateTourDate(id: string, data: Partial<InsertTourDate>): Promise<typeof tourDates.$inferSelect | null>;
   deleteTourDate(id: string): Promise<void>;
@@ -72,6 +73,11 @@ class DatabaseStorage implements IStorage {
   // Tour dates
   async getTourDates() {
     return db.select().from(tourDates);
+  }
+
+  async getTourDateCount() {
+    const result = await db.select().from(tourDates);
+    return result.length;
   }
 
   async createTourDate(data: InsertTourDate) {
