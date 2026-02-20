@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { FaInstagram, FaXTwitter, FaYoutube, FaFacebook, FaTiktok } from "react-icons/fa6";
-import { SiSpotify, SiApplemusic } from "react-icons/si";
+import { SiSpotify, SiApplemusic, SiReverbnation } from "react-icons/si";
 import { Mail } from "lucide-react";
 
 const quickLinks = [
@@ -14,13 +14,14 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://instagram.com/iamseanaustin", icon: FaInstagram, label: "Instagram" },
-  { href: "https://x.com/iamseanaustin", icon: FaXTwitter, label: "X" },
+  { href: "https://www.instagram.com/iamseanaustin", icon: FaInstagram, label: "Instagram" },
+  { href: "https://www.twitter.com/iamseanaustin", icon: FaXTwitter, label: "Twitter" },
   { href: "https://www.youtube.com/@SeanAustin-hc2bo", icon: FaYoutube, label: "YouTube" },
-  { href: "https://facebook.com/iamseanaustin", icon: FaFacebook, label: "Facebook" },
+  { href: "https://www.facebook.com/pg/IamSeanAustin", icon: FaFacebook, label: "Facebook" },
   { href: "https://tiktok.com/@iamseanaustin", icon: FaTiktok, label: "TikTok" },
   { href: "https://open.spotify.com/artist/0ZTUFRHKN1R7Se9eq5QTAT", icon: SiSpotify, label: "Spotify" },
-  { href: "https://music.apple.com/artist/sean-austin", icon: SiApplemusic, label: "Apple Music" },
+  { href: "https://itunes.apple.com/us/artist/1496526691", icon: SiApplemusic, label: "Apple Music" },
+  { href: "https://www.reverbnation.com/iamseanaustin", icon: SiReverbnation, label: "ReverbNation" },
 ];
 
 export default function Footer() {
