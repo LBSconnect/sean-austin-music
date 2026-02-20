@@ -9,10 +9,10 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/music", label: "Music" },
   { href: "/videos", label: "Videos" },
+  { href: "/merch", label: "Merch" },
   { href: "/tour", label: "Tour" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "/merch", label: "Merch" },
   { href: "/fan-club", label: "Fan Club" },
   { href: "/epk", label: "EPK" },
 ];
