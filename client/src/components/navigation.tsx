@@ -34,7 +34,15 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 h-16 flex-wrap">
           <Link href="/" data-testid="link-home-logo">
-            <img src={siteLogo} alt="Sean Austin" className="h-20 w-auto mix-blend-screen" />
+            <img
+              src={siteLogo}
+              alt="Sean Austin"
+              className="h-20 w-auto"
+              style={{
+                WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 70%)",
+                maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 70%)"
+              }}
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
