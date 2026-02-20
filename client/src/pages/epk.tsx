@@ -8,8 +8,8 @@ import type { PressQuote } from "@shared/schema";
 // Press photo for download
 const PRESS_PHOTO_URL = "/attached_assets/Sean_Austin_1771278867767.jpg";
 
-// YouTube video ID for "Confession" music video
-const CONFESSION_VIDEO_ID = "dQw4w9WgXcQ"; // Replace with actual video ID from YouTube
+// YouTube video ID for "Sunflower" music video
+const FEATURED_VIDEO_ID = "_bHwEJ4S5-w";
 
 export default function EPKPage() {
   const { data: pressQuotes } = useQuery<PressQuote[]>({
@@ -120,7 +120,7 @@ export default function EPKPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Video className="w-5 h-5" />
-                  Featured Video - "Confession"
+                  Featured Video - "Sunflower"
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -128,8 +128,8 @@ export default function EPKPage() {
                   <iframe
                     width="100%"
                     height="100%"
-                    src={`https://www.youtube.com/embed/${CONFESSION_VIDEO_ID}`}
-                    title="Sean Austin - Confession (Official Video)"
+                    src={`https://www.youtube.com/embed/${FEATURED_VIDEO_ID}`}
+                    title="Sean Austin - Sunflower (Official Video)"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="rounded-lg"
