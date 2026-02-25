@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://seanaustinmusic.com/sitemap.xml
+Sitemap: https://www.seanaustinmusic.com/sitemap.xml
 
 # Crawl-delay suggestion
 Crawl-delay: 1
