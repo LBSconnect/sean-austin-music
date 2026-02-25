@@ -451,7 +451,7 @@ export async function registerRoutes(
   });
 
   app.get("/sitemap.xml", (_req, res) => {
-    const baseUrl = "https://seanaustinmusic.com";
+    const baseUrl = "https://www.seanaustinmusic.com";
     const pages = [
       { path: "/", priority: "1.0", changefreq: "weekly" },
       { path: "/music", priority: "0.9", changefreq: "weekly" },
