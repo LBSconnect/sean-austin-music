@@ -1,6 +1,7 @@
 import { Music, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroLogo from "@assets/IMG_0989_1771277715074.jpg";
+import heroBg from "@assets/Sean_Austin_2_1771278867766.jpg";
 
 export default function Hero() {
   return (
@@ -10,6 +11,14 @@ export default function Hero() {
       data-testid="section-hero"
     >
       <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.5 }}
+        />
+      </div>
 
       <div className="relative z-10 max-w-5xl mx-auto w-full">
         <div className="relative mx-auto mb-6 sm:mb-8 w-full max-w-[280px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]">
