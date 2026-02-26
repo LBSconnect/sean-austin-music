@@ -23,7 +23,7 @@ export default function FanClubPage() {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
 
-  const { data: products, isLoading } = useQuery<FanClubProduct[]>({
+  const { data: products, isLoading, isError } = useQuery<FanClubProduct[]>({
     queryKey: ["/api/fan-club/products"],
   });
 
@@ -46,7 +46,7 @@ export default function FanClubPage() {
     },
   });
 
-  const handleJoin = (priceId: string) => {
+  const handleJoin = () => {
     if (!email || !email.includes("@")) {
       toast({
         title: "Email Required",
@@ -55,7 +55,15 @@ export default function FanClubPage() {
       });
       return;
     }
-    checkoutMutation.mutate({ priceId, email });
+    if (!products || products.length === 0) {
+      toast({
+        title: "Unavailable",
+        description: "Premium subscriptions are not yet available. Please check back soon.",
+        variant: "destructive",
+      });
+      return;
+    }
+    checkoutMutation.mutate({ priceId: products[0].price_id, email });
   };
 
   return (
@@ -86,6 +94,11 @@ export default function FanClubPage() {
               onChange={(e) => setEmail(e.target.value)}
               className="text-center"
             />
+            {isError && (
+              <p className="mt-2 text-xs text-destructive text-center">
+                Unable to load membership plans. Please refresh or try again later.
+              </p>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -178,8 +191,8 @@ export default function FanClubPage() {
                 </ul>
                 <Button
                   className="w-full mt-6"
-                  onClick={() => products && products[0] && handleJoin(products[0].price_id)}
-                  disabled={isLoading || !products || products.length === 0 || checkoutMutation.isPending}
+                  onClick={handleJoin}
+                  disabled={isLoading || checkoutMutation.isPending}
                 >
                   {checkoutMutation.isPending ? "Loading..." : "Join Premium"}
                 </Button>
