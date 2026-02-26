@@ -15,7 +15,6 @@ const galleryPhotos = [
   "/attached_assets/Sean_Austin_new3.jpeg",
   "/attached_assets/Sean_Austin_new6.jpeg",
   "/attached_assets/Sean_Austin_new7.jpeg",
-  "/attached_assets/Sean Austin (7).jpeg",
 ];
 
 interface FanClubProduct {
