@@ -16,7 +16,7 @@ export default function SEO({
   title,
   description,
   path = "/",
-  image = "/images/hero-bg.png",
+  image = "/attached_assets/Sean_Austin_new2.jpeg",
   type = "website",
 }: SEOProps) {
   const fullTitle = `${title} | ${SITE_NAME}`;
