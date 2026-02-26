@@ -2,32 +2,21 @@ import { build as esbuild } from "esbuild";
 import { build as viteBuild } from "vite";
 import { rm, readFile, writeFile } from "fs/promises";
 
-// server deps to bundle to reduce openat(2) syscalls
-// which helps cold start times
-const allowlist = [
-  "@google/generative-ai",
-  "axios",
+// Packages to bundle into the server output (reduces runtime node_modules lookups).
+// All other deps in package.json are treated as external (loaded from node_modules at start).
+const bundleList = [
+  "bcryptjs",
   "connect-pg-simple",
-  "cors",
   "date-fns",
   "drizzle-orm",
   "drizzle-zod",
   "express",
-  "express-rate-limit",
   "express-session",
-  "jsonwebtoken",
-  "memorystore",
-  "multer",
-  "nanoid",
-  "nodemailer",
-  "openai",
   "passport",
   "passport-local",
   "pg",
   "stripe",
-  "uuid",
   "ws",
-  "xlsx",
   "zod",
   "zod-validation-error",
 ];
@@ -44,7 +33,7 @@ async function buildAll() {
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.devDependencies || {}),
   ];
-  const externals = allDeps.filter((dep) => !allowlist.includes(dep));
+  const externals = allDeps.filter((dep) => !bundleList.includes(dep));
 
   await esbuild({
     entryPoints: ["server/index.ts"],
@@ -63,10 +52,7 @@ async function buildAll() {
     logLevel: "info",
   });
 
-  await writeFile(
-    "dist/index.cjs",
-    'import("./index.mjs");\n'
-  );
+  await writeFile("dist/index.cjs", 'import("./index.mjs");\n');
 }
 
 buildAll().catch((err) => {
