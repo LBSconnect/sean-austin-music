@@ -7,7 +7,22 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { Check, Star, Crown, Heart } from "lucide-react";
+import { Check, Star, Crown, Heart, X, ChevronLeft, ChevronRight } from "lucide-react";
+
+const galleryPhotos = [
+  "/attached_assets/Sean_Austin_new1.jpeg",
+  "/attached_assets/Sean_Austin_new2.jpeg",
+  "/attached_assets/Sean_Austin_new3.jpeg",
+  "/attached_assets/Sean_Austin_new6.jpeg",
+  "/attached_assets/Sean_Austin_new7.jpeg",
+  "/attached_assets/Sean Austin (1).jpeg",
+  "/attached_assets/Sean Austin (2).jpeg",
+  "/attached_assets/Sean Austin (3).jpeg",
+  "/attached_assets/Sean Austin (4).jpeg",
+  "/attached_assets/Sean Austin (5).jpeg",
+  "/attached_assets/Sean Austin (6).jpeg",
+  "/attached_assets/Sean Austin (7).jpeg",
+];
 
 interface FanClubProduct {
   product_id: string;
@@ -22,6 +37,12 @@ interface FanClubProduct {
 export default function FanClubPage() {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const openLightbox = (i: number) => setLightboxIndex(i);
+  const closeLightbox = () => setLightboxIndex(null);
+  const prevPhoto = () => setLightboxIndex((i) => (i === null ? null : (i - 1 + galleryPhotos.length) % galleryPhotos.length));
+  const nextPhoto = () => setLightboxIndex((i) => (i === null ? null : (i + 1) % galleryPhotos.length));
 
   const { data: products, isLoading } = useQuery<FanClubProduct[]>({
     queryKey: ["/api/fan-club/products"],
@@ -74,6 +95,65 @@ export default function FanClubPage() {
               Join the inner circle for exclusive content and experiences.
             </p>
           </div>
+
+          {/* Photo Gallery */}
+          <div className="mb-12">
+            <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
+              {galleryPhotos.map((src, i) => (
+                <button
+                  key={src}
+                  className="block w-full break-inside-avoid overflow-hidden rounded-lg cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  onClick={() => openLightbox(i)}
+                >
+                  <img
+                    src={src}
+                    alt={`Sean Austin photo ${i + 1}`}
+                    className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Lightbox */}
+          {lightboxIndex !== null && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+              onClick={closeLightbox}
+            >
+              <button
+                className="absolute top-4 right-4 text-white/80 hover:text-white p-2"
+                onClick={closeLightbox}
+                aria-label="Close"
+              >
+                <X className="w-7 h-7" />
+              </button>
+              <button
+                className="absolute left-4 text-white/80 hover:text-white p-2"
+                onClick={(e) => { e.stopPropagation(); prevPhoto(); }}
+                aria-label="Previous"
+              >
+                <ChevronLeft className="w-9 h-9" />
+              </button>
+              <img
+                src={galleryPhotos[lightboxIndex]}
+                alt={`Sean Austin photo ${lightboxIndex + 1}`}
+                className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <button
+                className="absolute right-4 text-white/80 hover:text-white p-2"
+                onClick={(e) => { e.stopPropagation(); nextPhoto(); }}
+                aria-label="Next"
+              >
+                <ChevronRight className="w-9 h-9" />
+              </button>
+              <span className="absolute bottom-4 text-white/50 text-sm">
+                {lightboxIndex + 1} / {galleryPhotos.length}
+              </span>
+            </div>
+          )}
 
           {/* Email Input */}
           <div className="max-w-md mx-auto mb-12">
