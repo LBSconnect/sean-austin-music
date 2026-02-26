@@ -6,30 +6,33 @@ import heroBg from "@assets/Sean_Austin_new2.jpeg";
 export default function Hero() {
   return (
     <section
-      className="relative flex flex-col items-center justify-center text-center px-4 sm:px-6 overflow-hidden"
+      className="relative flex flex-col items-center justify-end text-center px-4 sm:px-6 overflow-hidden pb-14 sm:pb-20"
       style={{ minHeight: "100svh" }}
       data-testid="section-hero"
     >
+      {/* Base background color */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+
+      {/* Artist photo — object-top keeps face in upper portion, unobstructed */}
+      <div className="absolute inset-0 overflow-hidden">
         <img
           src={heroBg}
           alt=""
-          className="w-full h-full object-cover object-center"
-          style={{ opacity: 0.5 }}
+          className="w-full h-full object-cover object-top"
+          style={{ opacity: 0.65 }}
         />
       </div>
 
+      {/* Gradient scrim: transparent at top → dark at bottom so content reads cleanly */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-transparent" style={{ top: "40%" }} />
+
+      {/* Content pinned to bottom — logo and text never overlap the face */}
       <div className="relative z-10 max-w-5xl mx-auto w-full">
-        <div className="relative mx-auto mb-6 sm:mb-8 w-full max-w-[280px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]">
+        <div className="relative mx-auto mb-4 sm:mb-6 w-full max-w-[200px] sm:max-w-[300px] md:max-w-[380px]">
           <img
             src={heroLogo}
             alt="Sean Austin"
             className="w-full h-auto"
-            style={{
-              WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 70%)",
-              maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 70%)"
-            }}
             data-testid="img-hero-logo"
           />
         </div>
