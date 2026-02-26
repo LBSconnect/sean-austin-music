@@ -1,4 +1,5 @@
 import { useState } from "react";
+import videoBg from "@assets/IMG_0989_1771277715074.jpg";
 import SEO from "@/components/seo";
 import { Card } from "@/components/ui/card";
 import { Play, ExternalLink } from "lucide-react";
@@ -280,7 +281,7 @@ export default function VideosPage() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url(https://img.youtube.com/vi/${featuredVideo?.id}/maxresdefault.jpg)`,
+              backgroundImage: `url(${videoBg})`,
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
