@@ -1,7 +1,7 @@
 import { Music, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroLogo from "@assets/IMG_0989_1771277715074.jpg";
-import heroBg from "@assets/Sean Austin (2).jpeg";
+import heroBg from "@assets/Sean_Austin_new2.jpeg";
 
 export default function Hero() {
   return (
