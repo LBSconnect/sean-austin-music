@@ -8,7 +8,7 @@ interface SEOProps {
   type?: string;
 }
 
-const SITE_URL = "https://seanaustinmusic.com";
+const SITE_URL = "https://www.seanaustinmusic.com";
 const SITE_NAME = "Sean Austin Music";
 const TWITTER_HANDLE = "@iamseanaustin";
 
