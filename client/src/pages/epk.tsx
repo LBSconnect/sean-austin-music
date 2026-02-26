@@ -6,7 +6,7 @@ import { Download, Music, Video, Quote, Mail } from "lucide-react";
 import type { PressQuote } from "@shared/schema";
 
 // Press photo for download
-const PRESS_PHOTO_URL = "/attached_assets/Sean_Austin_1771278867767.jpg";
+const PRESS_PHOTO_URL = "/attached_assets/Sean Austin (4).jpeg";
 
 // YouTube video ID for "Sunflower" music video
 const FEATURED_VIDEO_ID = "_bHwEJ4S5-w";
