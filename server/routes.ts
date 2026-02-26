@@ -8,7 +8,6 @@ import { insertContactSchema, insertSubscriberSchema, insertTourDateSchema, inse
 import { z } from "zod";
 import { getUncachableStripeClient, getStripePublishableKey } from "./stripeClient";
 import { db } from "./db";
-import { sql } from "drizzle-orm";
 
 declare module "express-session" {
   interface SessionData {
