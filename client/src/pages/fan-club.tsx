@@ -93,7 +93,7 @@ export default function FanClubPage() {
             <Card
               className="relative overflow-hidden border-0"
               style={{
-                backgroundImage: "url('/attached_assets/Sean_Austin_2_1771278867766.jpg')",
+                backgroundImage: "url('/attached_assets/Sean_Austin_new4.jpeg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center top",
               }}
@@ -128,7 +128,7 @@ export default function FanClubPage() {
             <Card
               className="relative overflow-hidden border-2 border-primary"
               style={{
-                backgroundImage: "url('/attached_assets/Sean_Austin_4_1771278867766.jpg')",
+                backgroundImage: "url('/attached_assets/Sean_Austin_new5.jpeg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center top",
               }}

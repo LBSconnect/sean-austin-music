@@ -27,8 +27,10 @@ export default function Hero() {
 
       {/* Content pinned to bottom — text never overlaps the face */}
       <div className="relative z-10 max-w-5xl mx-auto w-full">
-        <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-primary leading-tight" data-testid="text-hero-headline">
-          ROOTS. ROCK. REGGAE.
+        <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold leading-tight" data-testid="text-hero-headline">
+          <span style={{ color: "#8B1A1A" }}>ROOTS.</span>{" "}
+          <span style={{ color: "#FFD700" }}>ROCK.</span>{" "}
+          <span style={{ color: "#1A6B1A" }}>REGGAE.</span>
         </h1>
         <p className="mt-4 sm:mt-6 text-base sm:text-lg max-w-2xl mx-auto text-gray-300 leading-relaxed px-2">
           Sean Austin blends Jamaican roots with modern global sound —
