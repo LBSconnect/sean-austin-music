@@ -1,6 +1,5 @@
 import { Music, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroLogo from "@assets/IMG_0989_1771277715074.jpg";
 import heroBg from "@assets/Sean_Austin_new2.jpeg";
 
 export default function Hero() {
@@ -26,16 +25,8 @@ export default function Hero() {
       {/* Gradient scrim: transparent at top → dark at bottom so content reads cleanly */}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-transparent" style={{ top: "40%" }} />
 
-      {/* Content pinned to bottom — logo and text never overlap the face */}
+      {/* Content pinned to bottom — text never overlaps the face */}
       <div className="relative z-10 max-w-5xl mx-auto w-full">
-        <div className="relative mx-auto mb-4 sm:mb-6 w-full max-w-[200px] sm:max-w-[300px] md:max-w-[380px]">
-          <img
-            src={heroLogo}
-            alt="Sean Austin"
-            className="w-full h-auto"
-            data-testid="img-hero-logo"
-          />
-        </div>
         <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-primary leading-tight" data-testid="text-hero-headline">
           ROOTS. ROCK. REGGAE.
         </h1>
