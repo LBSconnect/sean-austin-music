@@ -64,22 +64,8 @@ export default function FanClubPage() {
         title="Fan Club - Sean Austin"
         description="Join Sean Austin's Fan Club for exclusive content, early access, and more."
       />
-      <div className="min-h-screen py-20 px-6 relative">
-        {/* Background Rasta Logo with 25% opacity */}
-        <div
-          className="absolute inset-0 flex items-center justify-center"
-          style={{ opacity: 0.25 }}
-        >
-          <img
-            src="/attached_assets/logo_white_bg_1771277560431.png"
-            alt=""
-            className="w-full max-w-2xl h-auto"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="absolute inset-0 bg-background/70" />
-
-        <div className="max-w-4xl mx-auto relative z-10">
+      <div className="min-h-screen py-20 px-6">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="font-display text-4xl md:text-5xl font-bold text-primary">
               Fan Club
@@ -104,51 +90,67 @@ export default function FanClubPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Free Tier */}
-            <Card className="bg-card/50">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+            <Card
+              className="relative overflow-hidden border-0"
+              style={{
+                backgroundImage: "url('/attached_assets/Sean_Austin_new3.jpeg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center top",
+              }}
+            >
+              <div className="absolute inset-0 bg-black/65" />
+              <CardHeader className="relative z-10 text-center">
+                <div className="w-12 h-12 bg-white/15 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle>Free</CardTitle>
+                <CardTitle className="text-white">Free</CardTitle>
                 <CardDescription>
                   <span className="text-2xl font-bold text-primary">$0</span>
-                  <span className="text-muted-foreground">/forever</span>
+                  <span className="text-white/60">/forever</span>
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <ul className="space-y-3">
                   {["Email updates", "Public content access", "Community access"].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-muted-foreground">
-                      <Check className="w-4 h-4 text-green-500" />
+                    <li key={feature} className="flex items-center gap-2 text-white/75">
+                      <Check className="w-4 h-4 text-green-400" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full mt-6" disabled>
+                <Button variant="outline" className="w-full mt-6 border-white/30 text-white bg-white/10 hover:bg-white/20" disabled>
                   Current Plan
                 </Button>
               </CardContent>
             </Card>
 
             {/* Premium Tier */}
-            <Card className="bg-card/50 border-primary">
-              <CardHeader className="text-center">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Card
+              className="relative overflow-hidden border-2 border-primary"
+              style={{
+                backgroundImage: "url('/attached_assets/Sean_Austin_new7.jpeg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center top",
+              }}
+            >
+              <div className="absolute inset-0 bg-black/65" />
+              <CardHeader className="relative z-10 text-center">
+                <div className="w-12 h-12 bg-primary/30 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Crown className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle className="flex items-center justify-center gap-2">
+                <CardTitle className="text-white flex items-center justify-center gap-2">
                   Premium
-                  <Star className="w-4 h-4 text-yellow-500" />
+                  <Star className="w-4 h-4 text-yellow-400" />
                 </CardTitle>
                 <CardDescription>
                   {isLoading ? (
-                    <span className="text-muted-foreground">Loading...</span>
+                    <span className="text-white/60">Loading...</span>
                   ) : products && products.length > 0 ? (
                     <>
                       <span className="text-2xl font-bold text-primary">
                         ${(products[0].unit_amount / 100).toFixed(2)}
                       </span>
-                      <span className="text-muted-foreground">
+                      <span className="text-white/60">
                         /{products[0].recurring.interval}
                       </span>
                     </>
@@ -157,7 +159,7 @@ export default function FanClubPage() {
                   )}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <ul className="space-y-3">
                   {[
                     "Exclusive unreleased tracks",
@@ -168,8 +170,8 @@ export default function FanClubPage() {
                     "Member-only merch drops",
                     "Free DJ dubplates and drops",
                   ].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-muted-foreground">
-                      <Check className="w-4 h-4 text-green-500" />
+                    <li key={feature} className="flex items-center gap-2 text-white/75">
+                      <Check className="w-4 h-4 text-green-400" />
                       {feature}
                     </li>
                   ))}
