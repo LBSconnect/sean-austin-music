@@ -1,47 +1,57 @@
-// Analytics tracking utilities
+// Analytics — integrates with GA4, Meta Pixel, and TikTok Pixel.
+// Set VITE_GA4_MEASUREMENT_ID, VITE_META_PIXEL_ID, VITE_TIKTOK_PIXEL_ID in Render env vars.
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+    fbq?: (...args: any[]) => void;
+    ttq?: { track: (event: string, data?: object) => void };
+    dataLayer?: any[];
+  }
+}
 
 let isInitialized = false;
 
 export function initTracking(): void {
-  if (isInitialized) return;
+  if (isInitialized || typeof window === 'undefined') return;
   isInitialized = true;
 
-  // Initialize any analytics services here (Google Analytics, etc.)
-  console.log('[Tracking] Initialized');
+  const ga4Id = import.meta.env.VITE_GA4_MEASUREMENT_ID;
+  if (ga4Id) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${ga4Id}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function (...args: any[]) { window.dataLayer!.push(args); };
+    window.gtag('js', new Date());
+    window.gtag('config', ga4Id, { send_page_view: false });
+  }
 }
 
 export function trackPageView(path: string): void {
-  if (!isInitialized) {
-    initTracking();
+  if (!isInitialized) initTracking();
+
+  const ga4Id = import.meta.env.VITE_GA4_MEASUREMENT_ID;
+  if (ga4Id && window.gtag) {
+    window.gtag('config', ga4Id, { page_path: path });
   }
 
-  // Track page view - can be extended with Google Analytics, etc.
-  console.log('[Tracking] Page view:', path);
-
-  // Example: If Google Analytics is set up
-  // window.gtag?.('config', 'GA_MEASUREMENT_ID', { page_path: path });
+  window.fbq?.('track', 'PageView');
 }
 
 export function trackEvent(category: string, action: string, label?: string): void {
-  if (!isInitialized) {
-    initTracking();
-  }
+  if (!isInitialized) initTracking();
 
-  console.log('[Tracking] Event:', { category, action, label });
-
-  // Example: If Google Analytics is set up
-  // window.gtag?.('event', action, { event_category: category, event_label: label });
+  window.gtag?.('event', action, { event_category: category, event_label: label });
+  window.fbq?.('trackCustom', action, { category, label });
 }
 
 export function trackEmailSignup(email: string): void {
-  if (!isInitialized) {
-    initTracking();
-  }
-
-  console.log('[Tracking] Email signup:', email);
-
-  // Track email signup conversion
   trackEvent('engagement', 'email_signup', email);
+  window.fbq?.('track', 'Lead');
+  window.ttq?.track('CompleteRegistration');
 }
 
 export function trackStreamClick(platform: string, trackName?: string): void {
@@ -50,4 +60,5 @@ export function trackStreamClick(platform: string, trackName?: string): void {
 
 export function trackContactSubmit(): void {
   trackEvent('engagement', 'contact_form_submit');
+  window.fbq?.('track', 'Contact');
 }

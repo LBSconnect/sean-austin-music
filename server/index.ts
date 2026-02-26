@@ -3,8 +3,6 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import { seedDatabase } from "./seed";
-import { runMigrations } from "stripe-replit-sync";
-import { getStripeSync } from "./stripeClient";
 import { WebhookHandlers } from "./webhookHandlers";
 
 const app = express();
@@ -16,35 +14,7 @@ declare module "http" {
   }
 }
 
-async function initStripe() {
-  const databaseUrl = process.env.DATABASE_URL;
-  if (!databaseUrl) {
-    console.warn("DATABASE_URL not set, skipping Stripe init");
-    return;
-  }
-
-  try {
-    console.log("Initializing Stripe schema...");
-    await runMigrations({ databaseUrl, schema: "stripe" });
-    console.log("Stripe schema ready");
-
-    const stripeSync = await getStripeSync();
-
-    const webhookBaseUrl = `https://${process.env.REPLIT_DOMAINS?.split(",")[0]}`;
-    const webhookResult = await stripeSync.findOrCreateManagedWebhook(
-      `${webhookBaseUrl}/api/stripe/webhook`
-    );
-    console.log("Stripe webhook configured:", webhookResult?.webhook?.url || "ready");
-
-    stripeSync
-      .syncBackfill()
-      .then(() => console.log("Stripe data synced"))
-      .catch((err: any) => console.error("Stripe sync error:", err));
-  } catch (error) {
-    console.error("Failed to initialize Stripe:", error);
-  }
-}
-
+// Webhook endpoint must be registered before express.json() so the raw body is preserved
 app.post(
   "/api/stripe/webhook",
   express.raw({ type: "application/json" }),
@@ -57,7 +27,6 @@ app.post(
     try {
       const sig = Array.isArray(signature) ? signature[0] : signature;
       if (!Buffer.isBuffer(req.body)) {
-        console.error("STRIPE WEBHOOK ERROR: req.body is not a Buffer");
         return res.status(500).json({ error: "Webhook processing error" });
       }
       await WebhookHandlers.processWebhook(req.body as Buffer, sig);
@@ -108,7 +77,6 @@ app.use((req, res, next) => {
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
-
       log(logLine);
     }
   });
@@ -117,7 +85,6 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  await initStripe();
   await registerRoutes(httpServer, app);
 
   await seedDatabase().catch((err) => {
@@ -127,19 +94,11 @@ app.use((req, res, next) => {
   app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
-
     console.error("Internal Server Error:", err);
-
-    if (res.headersSent) {
-      return next(err);
-    }
-
+    if (res.headersSent) return next(err);
     return res.status(status).json({ message });
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
   if (process.env.NODE_ENV === "production") {
     serveStatic(app);
   } else {
@@ -147,19 +106,8 @@ app.use((req, res, next) => {
     await setupVite(httpServer, app);
   }
 
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
-  httpServer.listen(
-    {
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    },
-    () => {
-      log(`serving on port ${port}`);
-    },
-  );
+  httpServer.listen({ port, host: "0.0.0.0", reusePort: true }, () => {
+    log(`serving on port ${port}`);
+  });
 })();
