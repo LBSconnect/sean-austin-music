@@ -55,7 +55,7 @@ const socialPlatforms = [
   {
     name: "Apple Music",
     handle: "Sean Austin",
-    url: "https://music.apple.com/us/artist/sean-austin/1462805978",
+    url: "https://music.apple.com/us/artist/sean-austin/1496526691",
     icon: SiApplemusic,
     color: "hover:text-pink-400",
     description: "Stream on Apple Music",
