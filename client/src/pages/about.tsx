@@ -2,7 +2,7 @@ import SEO from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import {
   FaInstagram, FaXTwitter, FaYoutube, FaFacebook, FaTiktok, FaSpotify,
-  FaTumblr, FaLinkedin,
+  FaTumblr,
 } from "react-icons/fa6";
 import { SiApplemusic, SiShazam } from "react-icons/si";
 import { ArrowUpRight, Radio, Sparkles, Music2 } from "lucide-react";
@@ -129,16 +129,6 @@ const socialPlatforms = [
     cta: "Follow",
     gradient: "from-violet-500 to-purple-800",
     glow: "hover:shadow-violet-500/40",
-  },
-  {
-    name: "LinkedIn",
-    handle: "Sean Linton",
-    url: "https://www.linkedin.com/in/seanlinton1",
-    icon: FaLinkedin,
-    description: "Professional network",
-    cta: "Connect",
-    gradient: "from-[#0A66C2] to-[#004182]",
-    glow: "hover:shadow-[#0A66C2]/40",
   },
 ];
 
