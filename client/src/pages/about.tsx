@@ -2,7 +2,7 @@ import SEO from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import { FaInstagram, FaXTwitter, FaYoutube, FaFacebook, FaTiktok, FaSpotify } from "react-icons/fa6";
 import { SiApplemusic } from "react-icons/si";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Radio } from "lucide-react";
 import Container from "@/components/container";
 
 const socialPlatforms = [
@@ -76,6 +76,16 @@ const socialPlatforms = [
     cta: "Follow",
     gradient: "from-[#fa5f7f] to-[#a1114f]",
     glow: "hover:shadow-[#fa5f7f]/40",
+  },
+  {
+    name: "JAM Audio",
+    handle: "Sean Austin",
+    url: "https://jamaudio.live/?jam_ref=artist%3Asean-austin#listen",
+    icon: Radio,
+    description: "24/7 independent artist radio",
+    cta: "Listen",
+    gradient: "from-amber-400 to-orange-700",
+    glow: "hover:shadow-amber-500/40",
   },
 ];
 
