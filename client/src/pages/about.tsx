@@ -1,8 +1,11 @@
 import SEO from "@/components/seo";
 import { Button } from "@/components/ui/button";
-import { FaInstagram, FaXTwitter, FaYoutube, FaFacebook, FaTiktok, FaSpotify } from "react-icons/fa6";
-import { SiApplemusic } from "react-icons/si";
-import { ArrowUpRight, Radio } from "lucide-react";
+import {
+  FaInstagram, FaXTwitter, FaYoutube, FaFacebook, FaTiktok, FaSpotify,
+  FaTumblr, FaLinkedin,
+} from "react-icons/fa6";
+import { SiApplemusic, SiShazam } from "react-icons/si";
+import { ArrowUpRight, Radio, Sparkles, Music2 } from "lucide-react";
 import Container from "@/components/container";
 
 const socialPlatforms = [
@@ -86,6 +89,56 @@ const socialPlatforms = [
     cta: "Listen",
     gradient: "from-amber-400 to-orange-700",
     glow: "hover:shadow-amber-500/40",
+  },
+  {
+    name: "Shazam",
+    handle: "Sean Austin",
+    url: "https://www.shazam.com/artist/sean-austin/1496526691",
+    icon: SiShazam,
+    description: "Identify his songs anywhere",
+    cta: "Follow",
+    gradient: "from-[#00c3ff] to-[#0047ab]",
+    glow: "hover:shadow-[#00c3ff]/40",
+  },
+  {
+    name: "Tumblr",
+    handle: "@iamseanaustin",
+    url: "https://www.tumblr.com/iamseanaustin",
+    icon: FaTumblr,
+    description: "Photos, posts & reblogs",
+    cta: "Follow",
+    gradient: "from-[#2c3e50] to-[#001935]",
+    glow: "hover:shadow-[#2c3e50]/40",
+  },
+  {
+    name: "Lemon8",
+    handle: "@iamseanaustin",
+    url: "https://www.lemon8-app.com/@iamseanaustin",
+    icon: Sparkles,
+    description: "Lifestyle content & highlights",
+    cta: "Follow",
+    gradient: "from-yellow-300 to-lime-600",
+    glow: "hover:shadow-yellow-400/40",
+  },
+  {
+    name: "Slaps",
+    handle: "Sean Austin",
+    url: "https://slaps.com/Sean_Austin",
+    icon: Music2,
+    description: "Discover & share his tracks",
+    cta: "Follow",
+    gradient: "from-violet-500 to-purple-800",
+    glow: "hover:shadow-violet-500/40",
+  },
+  {
+    name: "LinkedIn",
+    handle: "Sean Linton",
+    url: "https://www.linkedin.com/in/seanlinton1",
+    icon: FaLinkedin,
+    description: "Professional network",
+    cta: "Connect",
+    gradient: "from-[#0A66C2] to-[#004182]",
+    glow: "hover:shadow-[#0A66C2]/40",
   },
 ];
 
